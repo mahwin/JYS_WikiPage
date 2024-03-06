@@ -1,4 +1,4 @@
 export type PostData = {
-  id? : string 
-  contents? : string
-}
+  title: string;
+  content: string;
+};

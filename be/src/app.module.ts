@@ -6,5 +6,4 @@ import { PostsModule } from './posts/posts.module';
   controllers: [],
   providers: [],
 })
-
 export class AppModule {}
