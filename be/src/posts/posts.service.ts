@@ -1,22 +1,23 @@
-import { Injectable } from "@nestjs/common";
-import type { PostData } from './types'
-// import db from '../db/wiki.json'
+import { Injectable } from '@nestjs/common';
+import type { PostData } from './types';
+import { store } from '../../db/store';
 
 @Injectable()
 export class PostsService {
-  getPost(id:string) {
-    return `${id} 포스트 하나 주세요`;
+  getPost(id: string) {
+    return store.getPost(id);
   }
   getPosts() {
-    return "포스트 다 주세요";
+    return store.getPosts();
   }
   createPost(post: PostData) {
-    return `${JSON.stringify(post)} 포스트 생성 완료`;
+    store.createPost(post);
+    return { ok: true };
   }
   updatePost(id: string, post: PostData) {
-    return "포스트 업데이트 완료";
+    return store.updatePost(id, post);
   }
-  deletePost(id) {
-    return `${id} 포스트 삭제 완료`;
+  deletePost(id: string) {
+    return store.deletePost(id);
   }
 }
