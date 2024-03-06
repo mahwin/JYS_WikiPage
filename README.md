@@ -12,8 +12,10 @@
 
 0. 기본 셋팅
    1. yarn berry 사용 (2h / 1h)
-   2. 간단한 백앤드 서버 구축 (? / 2h)
-   3. db 구조 설계 (? / 1h)
+      1. 프론트 yarn berry
+      2. 백엔드 pnpm
+   2. 간단한 백앤드 서버 구축 (2h / 2h)
+   3. db 구조 설계 (1h / 1h)
 
 ## 시도한 것
 
@@ -23,6 +25,8 @@
 
 ## 사용 스택
 
-React, Nest, TypeScript, Styled-components, 패키지 매니저로 yarn berry 사용
+React, Nest, TypeScript, Styled-components, 패키지 매니저 프론트 yarn berry, 백엔드 pnpm
 
 ## 고민한 내용
+
+- 간단한 웹 페이지니 파일 시스템으로 db를 구축함.
