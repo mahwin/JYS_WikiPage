@@ -1,18 +1,11 @@
 import { useEffect } from "react";
 import axios from "axios";
+import { theme } from "./style/theme";
+import { ThemeProvider } from "styled-components";
+import { Button, Text, HStack, VStack } from "./components/Common";
 
 function App() {
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/posts")
-      .then((data) => {
-        console.log(data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  return <p>정리</p>;
+  return <ThemeProvider theme={theme}></ThemeProvider>;
 }
 
 export default App;
