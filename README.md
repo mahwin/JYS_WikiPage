@@ -70,11 +70,20 @@ React, Nest, TypeScript, Styled-components, 패키지 매니저 프론트 yarn b
 
 - 간단한 웹 페이지니 파일 시스템으로 db를 구축함.
 
-## 환경변수
+## 실행 방법
 
-fe/.env  
-VITE_API_URL = 'http://localhost:3000'
+git clone 후
 
-be/.dev.env
+cd ./be
+pnpm install
 
-CLIENT_URL="http://localhost:5173";
+be/.dev.env 에
+CLIENT_URL="http://localhost:5173"
+pnpm run start:dev
+
+cd ../fe
+yarn install
+
+fe/.env 에
+VITE_API_URL="http://localhost:3000"
+yarn run dev
