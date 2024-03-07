@@ -4,12 +4,12 @@ import styled from "styled-components";
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   children?: ReactElement;
   disabled?: boolean;
-  islink?: booelan;
+  islink?: string;
 }
 
 export function Button({
   children,
-  islink = false,
+  islink = "false",
   disabled = false,
   ...props
 }: Props) {
@@ -58,10 +58,11 @@ const ButtonStyle = styled.button<{ islink: boolean }>`
 
   color: ${(props) => props.theme.color.text};
 
-  text-decoration: ${(props) => (props.islink ? "underline" : "underline")};
+  text-decoration: ${(props) =>
+    props.islink !== "false" ? "underline" : "none"};
 
   background-color: ${(props) =>
-    props.islink ? "transparent" : props.theme.color.background};
+    props.islink !== "false" ? "transparent" : props.theme.color.background};
 
   &:not(:disabled):hover {
     color: ${(props) => props.theme.color.hover};
