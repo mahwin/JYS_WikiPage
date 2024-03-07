@@ -1,11 +1,7 @@
-import { useEffect } from "react";
-import axios from "axios";
-import { theme } from "./style/theme";
-import { ThemeProvider } from "styled-components";
-import { Button, Text, HStack, VStack } from "./components/Common";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return <ThemeProvider theme={theme}></ThemeProvider>;
+  return <Outlet></Outlet>;
 }
 
 export default App;

@@ -19,10 +19,10 @@ const TextareaStyle = styled.textarea`
   border-radius: 0.5rem;
   border: none;
   transition: color 0.3s ease-in-out;
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.color.background};
   color: ${(props) => props.theme.color};
 
   &:hover {
-    color: ${(props) => props.theme.hoverColor};
+    color: ${(props) => props.theme.color.hover};
   }
 `;

@@ -1,6 +1,11 @@
 export const theme = {
-  color: "#d8d8d8",
-  backgroundColor: "#1e1e1e",
-  borderColor: "#7b7b7b",
-  hoverColor: "orange",
+  color: {
+    text: "#d8d8d8",
+    background: "#1e1e1e",
+    border: "#7b7b7b",
+    hover: "orange",
+  },
+  size: {
+    width: "1200px",
+  },
 } as const;
