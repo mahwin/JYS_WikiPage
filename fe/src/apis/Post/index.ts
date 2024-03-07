@@ -18,6 +18,15 @@ export async function updatePost(id, data: PostType) {
   }
 }
 
+export async function createPost(data: PostType) {
+  try {
+    const res = await api.post(`/posts`, data);
+    return res.data;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 export type PostType = {
   title?: string;
   content?: string;

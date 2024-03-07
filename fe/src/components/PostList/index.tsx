@@ -1,20 +1,39 @@
 import { Text, Button, VStack, Space } from "../Common";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { PostType } from "../../apis/PostList";
 import { MAX_WIKI_PAGE_NUM } from "../../constants/pagenation";
+import { Modal } from "../Modal";
+import { CreatePost } from "./CreatePost";
 
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export function PostList({ posts, page }: { posts: PostType[]; page: number }) {
   const start = (page - 1) * MAX_WIKI_PAGE_NUM;
+
+  const dialog = useRef<HTMLDialogElement>(null);
+
+  const handleOpen = () => {
+    if (dialog.current === null) return;
+    dialog.current.showModal();
+  };
+
+  const handleClose = () => {
+    if (dialog.current === null) return;
+    dialog.current.close();
+  };
+
   return (
     <>
       <Ul>
         <VStack>
           <Text.Display>Wiki Page</Text.Display>
           <Space />
-          <Button.Base>Create</Button.Base>
+          <Button.Base onClick={handleOpen}>Create</Button.Base>
+
+          <Modal ref={dialog}>
+            <CreatePost onClick={handleClose} />
+          </Modal>
         </VStack>
         {posts.slice(start, start + MAX_WIKI_PAGE_NUM).map((post) => (
           <PostItem key={post.id} {...post} />
