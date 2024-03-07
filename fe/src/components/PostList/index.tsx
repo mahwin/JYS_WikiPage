@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { PostType } from "../../apis/PostList";
 import { MAX_WIKI_PAGE_NUM } from "../../constants/pagenation";
 
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export function PostList({ posts, page }: { posts: PostType[]; page: number }) {
-  const start = page * MAX_WIKI_PAGE_NUM;
+  const start = (page - 1) * MAX_WIKI_PAGE_NUM;
   return (
     <>
       <Ul>
@@ -27,17 +28,22 @@ const Ul = styled.ul`
   display: flex;
   flex-direction: column;
   width: ${(props) => props.theme.size.width};
-  height: 70vh;
+  height: 600px;
   padding: 12px 24px;
   border: 1px solid blue;
   gap: 10px;
 `;
 
-function PostItem({ title, content }: PostType) {
-  return (
-    <Li>
-      <Title>{title}</Title>
+function PostItem({ id, title, content }: PostType) {
+  const navigate = useNavigate();
 
+  const handleClickPost = () => {
+    navigate(`/posts/${id}`);
+  };
+
+  return (
+    <Li onClick={handleClickPost}>
+      <Title>{title}</Title>
       <Content>{content}</Content>
     </Li>
   );

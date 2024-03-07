@@ -19,7 +19,7 @@ export function usePagenation(postsNumber: number) {
     const endPage = Math.min(lastPage, startPage + offset - 1);
 
     const pages = Array.from(
-      { length: endPage - startPage + 1 },
+      { length: offset },
       (_, i) => endPage - offset + i + 1
     );
     setPageNationList(pages);

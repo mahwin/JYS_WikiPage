@@ -3,11 +3,17 @@ import { Space, Button } from "../Common/";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
-  const navagate = useNavigate();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
 
   return (
     <HeaderStyle>
-      <Button.Link islink="true">Home</Button.Link>
+      <Button.Link onClick={handleClick} islink="true">
+        Home
+      </Button.Link>
       <Space />
       <Button.Base disabled={true}>로그인</Button.Base>
       <Button.Submit disabled={true}>회원가입</Button.Submit>

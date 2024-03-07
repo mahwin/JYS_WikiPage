@@ -15,7 +15,7 @@ function main() {
   }
 
   function getPostArrIdx(id: string, db: DB) {
-    return db.posts.findIndex((post) => post.id === id);
+    return db.posts.findIndex((post) => post.id == id);
   }
 
   return {
@@ -23,7 +23,7 @@ function main() {
       const db = getDB();
       const postIdx = getPostArrIdx(id, db);
       if (postIdx === -1) return null;
-      return db.posts.find((post) => post.id === id);
+      return db.posts[postIdx];
     },
     getPosts() {
       const db = getDB();

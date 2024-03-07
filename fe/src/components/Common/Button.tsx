@@ -5,16 +5,23 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   children?: ReactElement;
   disabled?: boolean;
   islink?: string;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export function Button({
   children,
   islink = "false",
   disabled = false,
+  onClick,
   ...props
 }: Props) {
   return (
-    <ButtonStyle islink={islink} disabled={disabled} {...props}>
+    <ButtonStyle
+      onClick={onClick}
+      islink={islink}
+      disabled={disabled}
+      {...props}
+    >
       {children}
     </ButtonStyle>
   );
