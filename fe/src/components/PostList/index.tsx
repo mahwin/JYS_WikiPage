@@ -49,7 +49,9 @@ const Ul = styled.ul`
   width: ${(props) => props.theme.size.width};
   height: 600px;
   padding: 12px 24px;
-  border: 1px solid blue;
+
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   gap: 10px;
 `;
 

@@ -99,11 +99,12 @@ export function Post() {
 }
 
 const PostWrapper = styled.main`
-  border: 1px solid red;
   padding: 12px 24px;
   width: ${(props) => props.theme.size.width};
   height: 600px;
   display: flex;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   flex-direction: column;
   gap: 20px;
 `;

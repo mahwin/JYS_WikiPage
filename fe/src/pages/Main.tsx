@@ -4,6 +4,7 @@ import { Pagenation } from "../components/Pagenation";
 import styled from "styled-components";
 import { usePosts } from "../hooks/usePosts";
 import { usePagenation } from "../hooks/usePagenation";
+import { Footer } from "../components/Footer";
 
 export function Main() {
   const { posts } = usePosts();
@@ -15,12 +16,14 @@ export function Main() {
       <Header />
       <PostList posts={posts} page={pagenationProps.currentPage} />
       <Pagenation {...pagenationProps} />
+      <Footer />
     </MainPageLayout>
   );
 }
 
 const MainPageLayout = styled.div`
   width: 100%;
+  padding: 10px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
