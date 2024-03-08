@@ -24,5 +24,7 @@ export function Header() {
 const HeaderStyle = styled.header`
   display: flex;
   width: ${(props) => props.theme.size.width};
-  border: 1px solid red;
+  padding: 12px 24px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;

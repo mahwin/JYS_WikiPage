@@ -4,6 +4,8 @@ import { MouseEvent, useRef, useEffect, useState } from "react";
 import { createPost } from "../../apis/Post";
 import { useNavigate } from "react-router-dom";
 
+import { UNIQUE_CHAR } from "../../constants/uniqueChar.ts";
+
 export function CreatePost({ onClick }) {
   const inputRef = useRef("input");
   const textAreaRef = useRef("textArea");
@@ -14,6 +16,11 @@ export function CreatePost({ onClick }) {
 
     const title = inputRef.current.value;
     const content = textAreaRef.current.value;
+
+    if (title.includes(UNIQUE_CHAR) || content.includes(UNIQUE_CHAR)) {
+      alert("# 특수문자는 사용할 수 없습니다.");
+      return;
+    }
 
     if (!title || !content) {
       alert("제목과 본문을 작성해주세요");
