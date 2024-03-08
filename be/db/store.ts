@@ -42,7 +42,6 @@ function main() {
       const postIdx = getPostArrIdx(id, db);
 
       if (postIdx === -1) return null;
-      console.log(post);
       db.posts[postIdx] = { ...db.posts[postIdx], ...post };
       save(db);
       return;

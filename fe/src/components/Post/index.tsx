@@ -92,7 +92,7 @@ export function Post() {
       {canEdit ? (
         <ContentInput value={post.content} onChange={handleChange} />
       ) : (
-        <ContentLink content={origin} sortedPosts={sortedPosts} />
+        <ContentLink content={origin.content} sortedPosts={sortedPosts} />
       )}
     </PostWrapper>
   );

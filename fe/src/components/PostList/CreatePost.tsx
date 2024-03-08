@@ -4,7 +4,7 @@ import { MouseEvent, useRef, useEffect, useState } from "react";
 import { createPost } from "../../apis/Post";
 import { useNavigate } from "react-router-dom";
 
-import { UNIQUE_CHAR } from "../../constants/uniqueChar.ts";
+import { TITLE_MARK, NUMBER_MARK } from "../../constants/mark";
 
 export function CreatePost({ onClick }) {
   const inputRef = useRef("input");
@@ -17,8 +17,13 @@ export function CreatePost({ onClick }) {
     const title = inputRef.current.value;
     const content = textAreaRef.current.value;
 
-    if (title.includes(UNIQUE_CHAR) || content.includes(UNIQUE_CHAR)) {
-      alert("# 특수문자는 사용할 수 없습니다.");
+    if (title.includes(TITLE_MARK) || content.includes(TITLE_MARK)) {
+      alert(`${TITLE_MARK} 특수문자는 사용할 수 없습니다.`);
+      return;
+    }
+
+    if (title.includes(NUMBER_MARK) || content.includes(NUMBER_MARK)) {
+      alert(`${NUMBER_MARK} 특수문자는 사용할 수 없습니다.`);
       return;
     }
 
